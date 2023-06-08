@@ -1,3 +1,19 @@
-<h1>San Francisco Food Trucks</h1>
+<h1>Newest San Francisco Taco Trucks!</h1>
 
-<%= @results %>
+<% if @ordered_results.any? %>
+  <ul>
+    <% @ordered_results.each do |r| %>
+      <li>
+        <ul>
+          <li>Name: <%= r["applicant"] %></li>
+          <li>Address: <%= r["address"] %></li>
+          <li>Food Items: <%= r["fooditems"] %></li>
+          <li>Permit received: <%= r["approved"] %></li>
+        </ul>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  No tacos? What is this world coming to?
+<% end %>
